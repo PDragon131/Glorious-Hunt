@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 7f538707066dc7848a94c9fa13c538ed
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Bake Group
+    100002: Baker 1
+    100004: defaultMat
+    100006: defaultMat 1
+    100008: defaultMat 2
+    100010: defaultMat 3
+    100012: defaultMat 4
+    100014: defaultMat 5
+    100016: defaultMat 6
+    100018: defaultMat 7
+    100020: defaultMat 8
+    100022: defaultMat 9
+    100024: Group1
+    100026: Group10
+    100028: Group3
+    100030: Group4
+    100032: Group5
+    100034: Group6
+    100036: Group7
+    100038: Group8
+    100040: Group9
+    100042: //RootNode
+    100044: LOGS_LP
+    100046: Low
+    100048: Main Camera
+    100050: Render
+    100052: Sky
+    100054: ZBrush_defualt_group
+    400000: Bake Group
+    400002: Baker 1
+    400004: defaultMat
+    400006: defaultMat 1
+    400008: defaultMat 2
+    400010: defaultMat 3
+    400012: defaultMat 4
+    400014: defaultMat 5
+    400016: defaultMat 6
+    400018: defaultMat 7
+    400020: defaultMat 8
+    400022: defaultMat 9
+    400024: Group1
+    400026: Group10
+    400028: Group3
+    400030: Group4
+    400032: Group5
+    400034: Group6
+    400036: Group7
+    400038: Group8
+    400040: Group9
+    400042: //RootNode
+    400044: LOGS_LP
+    400046: Low
+    400048: Main Camera
+    400050: Render
+    400052: Sky
+    400054: ZBrush_defualt_group
+    2100000: No Name
+    2300000: Group1
+    2300002: Group10
+    2300004: Group3
+    2300006: Group4
+    2300008: Group5
+    2300010: Group6
+    2300012: Group7
+    2300014: Group8
+    2300016: Group9
+    2300018: ZBrush_defualt_group
+    3300000: Group1
+    3300002: Group10
+    3300004: Group3
+    3300006: Group4
+    3300008: Group5
+    3300010: Group6
+    3300012: Group7
+    3300014: Group8
+    3300016: Group9
+    3300018: ZBrush_defualt_group
+    4300000: ZBrush_defualt_group
+    4300002: Group1
+    4300004: Group3
+    4300006: Group4
+    4300008: Group5
+    4300010: Group6
+    4300012: Group7
+    4300014: Group8
+    4300016: Group9
+    4300018: Group10
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
