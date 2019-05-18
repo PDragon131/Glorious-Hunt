@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class HpDisplay : MonoBehaviour {
 
-    public Text text;
+    //https://www.youtube.com/watch?v=5KwkfGfaRNU
+
+    public Sprite[] HeartSprites;
+
+    public Image HearthUI;
 
     void Update ()
     {
-            text.text = "Player HP: " + Player.playerHP;
+        HearthUI.sprite = HeartSprites[Player.playerHP];
+
 	}
 }

@@ -7,6 +7,7 @@ public class BombClear : MonoBehaviour
 
     public GameObject bomb;
     public GameObject bombVFX;
+    public GameObject iFrameVFX;
     public static int ammo;
 
     private bool noSpam;
@@ -25,6 +26,13 @@ public class BombClear : MonoBehaviour
             noSpam = true;
                 
         }
+
+        if(Player.iFrames < 2)
+        {
+            iFrameVFX.SetActive(true);
+        }
+        else
+            iFrameVFX.SetActive(false);
     }
 
     IEnumerator Bomb()

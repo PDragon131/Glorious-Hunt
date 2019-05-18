@@ -5,6 +5,7 @@ using UnityEngine;
 public class PoinAPort : MonoBehaviour {
 
     public GameObject portPoint;
+    public GameObject vFX;
     public float cooldown;
 
     private bool going;
@@ -39,26 +40,24 @@ public class PoinAPort : MonoBehaviour {
         if (going)
         {
             Player.iFrames = 0;
+            vFX.SetActive(true);
 
-            Renderer[] renderers = GetComponentsInChildren<Renderer>();
-            foreach (var r in renderers)
-            {
-                r.enabled = false;
-            }
+            
+                gameObject.GetComponent<Renderer>().enabled = false;
+
+            
 
             transform.position = Vector3.MoveTowards(transform.position, point.transform.position, 1.5f);
 
             if (transform.position == point.transform.position)
             {
-                foreach (var r in renderers)
-                {
-                    r.enabled = true;
-                }
+                gameObject.GetComponent<Renderer>().enabled = true;
 
                 cooldown = 0;
                 placed = false;
                 Player.iFrames = 0;
                 going = false;
+                StartCoroutine(VFXStop());
                 Destroy(point);
             }
 
@@ -66,4 +65,11 @@ public class PoinAPort : MonoBehaviour {
 
 
 	}
+
+    IEnumerator VFXStop()
+    {
+        yield return new WaitForSeconds(2f);
+        vFX.SetActive(false);
+    }
+
 }

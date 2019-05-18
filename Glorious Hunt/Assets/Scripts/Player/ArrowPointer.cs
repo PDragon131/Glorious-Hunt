@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class ArrowPointer : MonoBehaviour
 {
-    private GameObject target;
+    public GameObject target;
     private GameObject player;
+    private Renderer arrowRender;
+
 
     private void Start()
     {
-        target = GameObject.Find("Stabo");
 
         player = GameObject.FindGameObjectWithTag("Player");
+
+        arrowRender = gameObject.GetComponentInChildren<Renderer>();
     }
 
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, player.transform.position.z);
+        
+            
+            transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, player.transform.position.z);
 
-        Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
+            Vector3 targetPosition = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
 
-        transform.LookAt(targetPosition);
+            transform.LookAt(targetPosition);
+
+
+        if (target.activeSelf)
+        {
+            arrowRender.enabled = true;
+        }
+        else
+        {
+            arrowRender.enabled = false;
+        }
     }
 }

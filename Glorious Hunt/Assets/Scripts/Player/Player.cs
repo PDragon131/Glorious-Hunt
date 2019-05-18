@@ -7,20 +7,22 @@ public class Player : MonoBehaviour {
 
     public static int playerHP;
 
-    [SerializeField] private GameObject cheatWeapon;
     private float cD;
     private float maxCD;
 
     public static float iFrames;
     private float maxIFrames;
 
+    public GameObject hitParticle;
+    public GameObject iFrameParticle;
+
     void Start ()
     {
-        playerHP = 200;
+        playerHP = 10;
         cD = 0.2f;
         maxCD = cD;
 
-        iFrames = 1.5f;
+        iFrames = 2f;
         maxIFrames = iFrames;
     }
 	
@@ -50,10 +52,21 @@ public class Player : MonoBehaviour {
     {
         if ((other.CompareTag("BossBullet") || other.CompareTag("Boss")) && iFrames >= maxIFrames)
         {
-            playerHP -= 20;
+            playerHP -= 1;
             iFrames = 0f;
+
+            StartCoroutine(HitVFX());
             
         }
+    }
+
+    IEnumerator HitVFX()
+    {
+        hitParticle.SetActive(true);
+        iFrameParticle.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        hitParticle.SetActive(false);
+        iFrameParticle.SetActive(false);
     }
 
 

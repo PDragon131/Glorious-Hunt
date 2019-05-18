@@ -28,7 +28,7 @@ public class WeaponSwap : MonoBehaviour {
     {
         pressDelay += Time.deltaTime;
 
-        if ((Input.GetAxisRaw("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.Alpha2)) && pressDelay >= pDValue)
+        if ((Input.GetAxisRaw("Mouse ScrollWheel") != 0 || Input.GetKeyDown(KeyCode.Alpha2)) && pressDelay >= pDValue && !ChargeGun.shooting)
         {
             Swapweapon();
         }

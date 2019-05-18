@@ -29,9 +29,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765703129364702249}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14.17, y: 36.757812, z: -7.82}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 8}
   m_Children:
   - {fileID: 4195838912105075545}
   m_Father: {fileID: 0}
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 765703129364702249}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 75d812f03d2389a44a4cae6a0d7341f6, type: 3}
 --- !u!23 &790280992193658729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aee887550477bb545977e45e0abeea00, type: 2}
+  - {fileID: 2100000, guid: 07e388332f8583a4683b82b3f366b4ab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,8 +122,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.51416
-  m_Height: 1
+  m_Radius: 0.09234017
+  m_Height: 0.18468034
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4195838912279913928
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_axisMove: 1
   m_inheritAngle: 0
   m_startOnAwake: 1
-  m_startOnAwakeDelay: 3
+  m_startOnAwakeDelay: 2
   m_startOnEnable: 0
   m_startOnEnableDelay: 1
   m_loop: 0
@@ -199,19 +199,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bulletPrefab: {fileID: 1194211827683112, guid: ede2fc6713569f34ea3c998286799001,
     type: 3}
-  m_bulletNum: 10
-  m_bulletSpeed: 8
-  m_accelerationSpeed: -2
+  m_bulletNum: 8
+  m_bulletSpeed: 10
+  m_accelerationSpeed: -1
   m_useMaxSpeed: 0
   m_maxSpeed: 0
   m_useMinSpeed: 1
-  m_minSpeed: 2
+  m_minSpeed: 8
   m_accelerationTurn: 0
   m_usePauseAndResume: 0
   m_pauseTime: 0
   m_resumeTime: 0
   m_useAutoRelease: 0
-  m_autoReleaseTime: 10
+  m_autoReleaseTime: 5
   m_shotFiredCallbackEvents:
     m_PersistentCalls:
       m_Calls: []

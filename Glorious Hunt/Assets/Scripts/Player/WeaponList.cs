@@ -20,8 +20,5 @@ public class WeaponList : MonoBehaviour {
         }
     }
 	
-	void Update ()
-    {
 
-	}
 }

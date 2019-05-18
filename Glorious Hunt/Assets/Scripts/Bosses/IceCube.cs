@@ -19,7 +19,7 @@ public class IceCube : MonoBehaviour
 
         }
         
-        if (other.CompareTag("Bullet") && !other.GetComponent<Bullet>().ray)
+        if (other.CompareTag("Bullet"))
         {
             Destroy(other.gameObject);
             Destroy(gameObject);

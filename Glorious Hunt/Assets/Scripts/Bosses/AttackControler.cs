@@ -21,8 +21,8 @@ public class AttackControler : MonoBehaviour
     private void Start()
     {
         canPick = true;
-        maxTimer = 1f;
-        timer = maxTimer;
+        maxTimer = 2f;
+        timer = 0;
     }
 
 
@@ -56,7 +56,7 @@ public class AttackControler : MonoBehaviour
             BossParts.Remove(removedR);
         }
 
-        if(BossBehaviour.bossHp <= 5000)
+        if(BossBehaviour.bossHp <= 7500)
         {
 
             canPick = false;

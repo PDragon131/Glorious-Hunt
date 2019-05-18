@@ -11,16 +11,22 @@ public class staboBehaviour : MonoBehaviour {
     private float fireCD;
     private bool canFire;
 
+    private Animator anim;
+
     public Transform firePoint;
     public GameObject bulletPref;
     public GameObject player;
+    public GameObject particle;
     public int speed;
 
     void Start ()
     {
         max = 3f;
-        fireRate = 0.1f;
+        fireRate = 0.2f;
         canFire = false;
+
+        anim = GetComponentInChildren<Animator>();
+
     }
 	
 	void Update ()
@@ -30,20 +36,14 @@ public class staboBehaviour : MonoBehaviour {
 
         if (attackCD >= max)
         {
+            anim.SetBool("Dashing", true);
+            particle.SetActive(true);
             canFire = true;
             transform.position += transform.forward * Time.deltaTime * speed;
+
         }
         else
         {
-            /*
-            canFire = false;
-            gameObject.transform.LookAt(player.transform.position);
-
-            Vector3 rotation = gameObject.transform.localRotation.eulerAngles;
-            rotation.x = 0;
-
-            gameObject.transform.localRotation = Quaternion.Euler(rotation);
-            */
             canFire = false;
 
             Quaternion lookOnLook = Quaternion.LookRotation(player.transform.position - transform.position);
@@ -65,13 +65,13 @@ public class staboBehaviour : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-
-
         if (other.CompareTag("Wall") && attackCD > max)
         {
 
             attackCD = 0;
-            
+            anim.SetBool("Dashing", false);
+            particle.SetActive(false);
+
         }
     }
 }

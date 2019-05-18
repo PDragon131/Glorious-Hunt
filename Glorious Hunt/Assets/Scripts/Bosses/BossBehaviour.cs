@@ -5,23 +5,25 @@ using UnityEngine.AI;
 
 public class BossBehaviour : MonoBehaviour
 {
-    //Fase change
-    public GameObject fase2;
-    public GameObject fase2_garraRight;
-    public GameObject fase2_garraLeft;
+    //Fase 2
+    public GameObject ray1;
+    public GameObject ray2;
+    public GameObject spread;
+    public GameObject topCenterPoint;
 
-    //Fase Rest
-    private float rest;
-    private float restTimer;
-
-    //Fase 3
+    //Fase change 3
     public GameObject fase3;
+    public GameObject fase3_garraRight;
+    public GameObject fase3_garraLeft;
+
+    //Fase 4
+    public GameObject fase4;
     public Animator anim;
     public Animator anim2;
-    public GameObject weaponStabo;
     public GameObject stabo;
     public GameObject garraLeft;
     public GameObject garraRight;
+    public GameObject weaponStabo;
 
     //HP
     public static int bossHp;
@@ -45,6 +47,14 @@ public class BossBehaviour : MonoBehaviour
     //Weapon Spawn
     Vector3 weaponPos;
 
+    //Particles
+    private int particlefase;
+
+    public GameObject particle1;
+    public GameObject particle2;
+    public GameObject particle3;
+
+
     void Start()
     {
         //setting navemesh
@@ -59,9 +69,9 @@ public class BossBehaviour : MonoBehaviour
         //Set HP
         bossHp = 10000;
 
-        rest = 5f;
-        restTimer = rest;
-        rest = 0f;
+        particlefase = 1;
+
+        StartCoroutine(FaseParticle());
 
         }
 
@@ -86,8 +96,6 @@ public class BossBehaviour : MonoBehaviour
         //Attack timer
         //attackCD += Time.deltaTime;
 
-        rest += Time.deltaTime;
-
         // Choose the next destination point when the agent gets
         // close to the current one.
         if (!agent.pathPending && agent.remainingDistance < 0.5f && bossHp > 5000)
@@ -98,6 +106,7 @@ public class BossBehaviour : MonoBehaviour
 
         if (bossHp <= 0)
         {
+            /*
             weaponPos.x = transform.localPosition.x;
             weaponPos.z = transform.localPosition.z;
 
@@ -105,47 +114,80 @@ public class BossBehaviour : MonoBehaviour
 
             Instantiate(WeaponList.weaponList[Random.Range(0, select)], weaponPos, transform.rotation);
             WeaponList.weaponList.RemoveAt(select);
+            */
             Destroy(gameObject);
         }
 
         if (Input.GetKeyDown(KeyCode.V))
         {
-            bossHp -= 1000;
+            bossHp -= 500;
+        }
+
+        if(bossHp <= 7500 && particlefase == 1)
+        {
+            StartCoroutine(FaseParticle());
+            StartCoroutine(Fase3());
+            particlefase++;
+        }
+
+        else if(bossHp <= 5000 && particlefase == 2)
+        {
+            ray1.SetActive(true);
+            ray2.SetActive(true);
+            StartCoroutine(FaseParticle());
+            StartCoroutine(Fase2());
+            particlefase++;
+
+        }
+        else if (bossHp <= 2500 && particlefase == 3)
+        {
+            StartCoroutine(FaseParticle());
+            stabo.SetActive(false);
+
+            ray1.SetActive(false);
+            ray2.SetActive(false);
+
+            stabo.SetActive(false);
+            spread.SetActive(false);
+            anim.SetBool("Fase2", false);
+            anim2.SetBool("Fase2", false);
+
+            anim.SetBool("Fase4", true);
+            weaponStabo.gameObject.SetActive(true);   
+
+            particlefase++;
         }
 
     }
 
     void FixedUpdate()
     {
-        agent.transform.LookAt(player.transform);
 
-        if (bossHp <= 2000)
+        if (bossHp > 7500)
         {
-            fase3.gameObject.SetActive(true);
-            agent.destination = player.transform.position;
-            agent.speed = 6;
-            agent.acceleration = 6;
-            fase2.gameObject.SetActive(false);
-            weaponStabo.SetActive(true);
-            stabo.SetActive(false);
+            agent.transform.LookAt(player.transform);
+        }
 
-            anim.SetBool("Fase3", true);
-            anim2.SetBool("Fase 3", true);
-
-            fase2_garraLeft.SetActive(false);
-            fase2_garraRight.SetActive(false);
-
+        else if (bossHp <= 7500 && bossHp > 5000)
+        {
             
-
-        }
-        else if (bossHp <= 5000 && bossHp > 2000)
-        {
             agent.destination = centralPoint.transform.position;
-            fase2.gameObject.SetActive(true);
-            fase2_garraLeft.SetActive(true);
-            fase2_garraRight.SetActive(true);
-
+            agent.transform.LookAt(player.transform);
         }
+
+        else if (bossHp <= 5000 && bossHp > 2500)
+        {
+            agent.destination = topCenterPoint.transform.position;
+            agent.transform.LookAt(Vector3.zero);
+        }
+
+        else if (bossHp <= 2500)
+        {
+            agent.destination = topCenterPoint.transform.position;
+            agent.transform.LookAt(Vector3.zero);
+            fase4.gameObject.SetActive(true);
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -157,4 +199,46 @@ public class BossBehaviour : MonoBehaviour
         }
     }
 
+
+    IEnumerator FaseParticle()
+    {
+        particle1.SetActive(true);
+        particle2.SetActive(true);
+        particle3.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        particle1.SetActive(false);
+        particle2.SetActive(false);
+        particle3.SetActive(false);
+    }
+
+    IEnumerator Fase2()
+    {
+        fase3.gameObject.SetActive(false);
+        fase3_garraLeft.SetActive(false);
+        fase3_garraRight.SetActive(false);
+
+        anim.SetBool("Fase2", true);
+        anim2.SetBool("Fase2", true);
+
+        yield return new WaitForSeconds(10f);
+        spread.SetActive(true);
+    }
+
+    IEnumerator Fase3()
+    {
+        /*
+        anim.SetBool("Fase2", false);
+        anim2.SetBool("Fase2", false);
+        spread.SetActive(false);
+        gameObject.GetComponent<AttackControler>().timer = 0;
+        */
+        yield return new WaitForSeconds(3f);
+
+        stabo.SetActive(true);
+        fase3.gameObject.SetActive(true);
+        fase3_garraLeft.SetActive(true);
+        fase3_garraRight.SetActive(true);
+    }
 }
